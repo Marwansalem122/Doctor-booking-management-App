@@ -1,7 +1,6 @@
 import 'package:appointment_booking_app/common/resourses/assets_manager.dart';
 import 'package:appointment_booking_app/common/resourses/strings_manager.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../common/resourses/width_size_manager.dart';

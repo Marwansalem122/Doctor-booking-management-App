@@ -5,7 +5,6 @@ import 'package:appointment_booking_app/features/onboarding/widgets/doc_image_an
 import 'package:appointment_booking_app/features/onboarding/widgets/doc_logo_and_name.dart';
 import 'package:appointment_booking_app/features/onboarding/widgets/get_started_button.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../common/resourses/width_size_manager.dart';
 
