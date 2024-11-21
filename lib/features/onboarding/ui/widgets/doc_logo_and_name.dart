@@ -3,8 +3,10 @@ import 'package:appointment_booking_app/common/resourses/strings_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../../common/resourses/width_size_manager.dart';
-import '../../../core/theming/styles.dart';
+import '../../../../common/resourses/width_size_manager.dart';
+import '../../../../core/helper/spacing.dart';
+import '../../../../core/theming/styles.dart';
+
 
 class DocLogoAndName extends StatelessWidget {
   const DocLogoAndName({super.key});
@@ -15,8 +17,8 @@ class DocLogoAndName extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         SvgPicture.asset(AssetsManager.logo),
-       SizedBox(width: WidthSizeManager.w10),
-        Text(StringsManager.onBoardingTitle,style: TextStyleManager.font24Black700Weight)
+        horizontalSpace( WidthSizeManager.w10),
+        Text(StringsManager.onBoardingTitle,style: TextStyleManager.font24BlackBoldWeight)
 
       ],
     );
