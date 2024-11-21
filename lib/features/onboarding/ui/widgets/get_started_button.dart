@@ -1,10 +1,11 @@
 import 'package:appointment_booking_app/features/onboarding/logic/onboarding_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../common/resourses/strings_manager.dart';
-import '../../../common/resourses/width_size_manager.dart';
-import '../../../core/theming/app_colors.dart';
-import '../../../core/theming/styles.dart';
+import '../../../../common/resourses/strings_manager.dart';
+import '../../../../common/resourses/width_size_manager.dart';
+import '../../../../core/theming/app_colors.dart';
+import '../../../../core/theming/styles.dart';
 
 class GetStartedButton extends StatelessWidget {
   const GetStartedButton({super.key});
@@ -21,13 +22,13 @@ class GetStartedButton extends StatelessWidget {
           style: TextButton.styleFrom(
             backgroundColor: AppColors.mainBlue,
             tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-            minimumSize: const Size(double.infinity, 50),
+            minimumSize:  Size(double.infinity, 50.h),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(16),
             )
           ),
           child: Text(StringsManager.getStarted,
-              style: TextStyleManager.font16White600Weight)),
+              style: TextStyleManager.font16WhiteSemiBoldWeight)),
     );
   }
 }

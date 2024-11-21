@@ -1,5 +1,23 @@
-class StringsManager{
-  static const String onBoardingTitle="Docdoc";
-  static const String onBoardingTitle2="Best Doctor\nAppointment App";
-  static const String onBoardingSubTitle="Manage and schedule all of your medical appointments easily with Docdoc to get a new experience.";
+class StringsManager {
+  static const String onBoardingTitle = "Docdoc";
+  static const String onBoardingTitle2 = "Best Doctor\nAppointment App";
+  static const String onBoardingSubTitle =
+      "Manage and schedule all of your medical appointments easily with Docdoc to get a new experience.";
+  static const String getStarted = "Get Started";
+
+  //login page
+  static const String login = "Login";
+  static const String welcomeAccount = "Create Account";
+  static const String subTitleLogin =
+      "We're excited to have you back, can't wait to see what you've been up to since you last \nlogged in.";
+  static const String email = "Email";
+  static const String password = "Password";
+  static const String yourNumber = "Your number";
+  static const String forgetPassword = "Forget Password?";
+  static const String OrSignInWith = "Or sign in with";
+  static const String alreadyHaveAccount = "Already have an account?";
+  static const String byLogging = "By logging, you agree to our";
+  static const String termsAndPrivacyPolicy =
+      "  Terms & Conditions and PrivacyPolicy.";
+  static const String signUp = "Sign Up";
 }
