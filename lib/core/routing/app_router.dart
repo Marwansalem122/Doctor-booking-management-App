@@ -1,7 +1,11 @@
+import 'package:appointment_booking_app/core/di/dependancy_injection.dart';
 import 'package:appointment_booking_app/core/routing/routes.dart';
+import 'package:appointment_booking_app/features/home/ui/home_screen.dart';
+import 'package:appointment_booking_app/features/login/logic/login_cubit.dart';
 import 'package:appointment_booking_app/features/login/ui/login_screen.dart';
 import 'package:appointment_booking_app/features/onboarding/ui/on_boarding_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AppRouter {
   Route generateRoute(RouteSettings settings) {
@@ -12,7 +16,12 @@ class AppRouter {
       case Routes.onBoardingScreen:
         return materialPageBuilder(const OnBoardingScreen());
       case Routes.loginScreen:
-        return materialPageBuilder(const LoginScreen());
+        return materialPageBuilder(BlocProvider(
+         create: (context) =>getIt<LoginCubit>(),
+          child: const LoginScreen(),
+        ));
+      case Routes.homeScreen:
+        return materialPageBuilder(const HomeScreen());
 //       case Routes.tipsDetailsPage:
 //         if (argument is Map) {
 //           return createRoute(TipsDetailPage(tObj: argument));

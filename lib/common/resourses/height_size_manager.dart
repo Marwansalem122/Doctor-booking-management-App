@@ -1,6 +1,7 @@
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HeightSizeManager {
+  static final double h2 = 2.0.h;
   static final double h8 = 8.0.h;
   static final double h14 = 14.0.h;
   static final double h15 = 15.0.h;

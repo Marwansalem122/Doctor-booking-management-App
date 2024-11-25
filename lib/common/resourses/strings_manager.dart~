@@ -17,7 +17,10 @@ class StringsManager {
   static const String OrSignInWith = "Or sign in with";
   static const String alreadyHaveAccount = "Already have an account?";
   static const String byLogging = "By logging, you agree to our";
-  static const String termsAndPrivacyPolicy =
-      "  Terms & Conditions and PrivacyPolicy.";
+  static const String termsAndConditions = " Terms & Conditions";
+  static const String and = " and";
+  static const String privacyPolicy =
+      " PrivacyPolicy.";
   static const String signUp = "Sign Up";
+  static const String goIt = "Go it";
 }

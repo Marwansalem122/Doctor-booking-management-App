@@ -22,4 +22,7 @@ class StringsManager {
   static const String privacyPolicy =
       " PrivacyPolicy.";
   static const String signUp = "Sign Up";
+  static const String goIt = "Go it";
+  static const String enterValidEmail = "Please enter a valid email";
+  static const String enterValidPassword = "Please enter a valid password";
 }

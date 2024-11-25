@@ -1,15 +1,17 @@
 import 'package:appointment_booking_app/common/resourses/height_size_manager.dart';
 import 'package:appointment_booking_app/common/resourses/strings_manager.dart';
 import 'package:appointment_booking_app/core/widgets/app_text_button.dart';
-import 'package:appointment_booking_app/core/widgets/app_text_form_field.dart';
+import 'package:appointment_booking_app/features/login/data/models/login_request_body.dart';
 import 'package:appointment_booking_app/features/login/ui/widgets/already_have_account.dart';
+import 'package:appointment_booking_app/features/login/ui/widgets/email_and_password.dart';
+import 'package:appointment_booking_app/features/login/ui/widgets/login_bloc_listener.dart';
+import 'package:appointment_booking_app/features/login/ui/widgets/terms_and_condations_text.dart';
 import 'package:flutter/material.dart';
-
-import '../../../common/resourses/font_size_manager.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../common/resourses/width_size_manager.dart';
 import '../../../core/helper/spacing.dart';
-import '../../../core/theming/app_colors.dart';
 import '../../../core/theming/styles.dart';
+import '../logic/login_cubit.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -19,8 +21,6 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  bool isObsercureText = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,48 +39,41 @@ class _LoginScreenState extends State<LoginScreen> {
                 Text(StringsManager.subTitleLogin,
                     style: TextStyleManager.font14grayRegular),
                 verticalSpace(HeightSizeManager.h36),
-                Form(
-                    key: _formKey,
-                    child: Column(children: [
-                      const AppTextFormField(hintText: StringsManager.email),
-                      verticalSpace(HeightSizeManager.h18),
-                      AppTextFormField(
-                          hintText: StringsManager.password,
-                          isObsecureText: isObsercureText,
-                          suffixIcon: IconButton(
-                            icon: Icon(
-                              isObsercureText
-                                  ? Icons.visibility_off
-                                  : Icons.visibility,
-                              color: AppColors.gray,
-                            ),
-                            onPressed: () {
-                              setState(() {
-                                isObsercureText = !isObsercureText;
-                              });
-                            },
-                          )),
-                      verticalSpace(HeightSizeManager.h24),
-                      //AlignmentDirectional for arabic and English in localization
-                      Align(
-                          alignment: AlignmentDirectional.centerEnd,
-                          child: Text(
-                            StringsManager.forgetPassword,
-                            style: TextStyleManager.font12BlueRegular,
-                          )),
-                      verticalSpace(HeightSizeManager.h40),
-                      AppTextButton(
-                          text: StringsManager.login, onPressed: () {}),
-                      verticalSpace(HeightSizeManager.h16),
-                      verticalSpace(HeightSizeManager.h60),
-                     const AlreadyHaveAccount()
-
-                    ]))
+                Column(children: [
+                  const EmailAndPassword(),
+                  verticalSpace(HeightSizeManager.h24),
+                  //AlignmentDirectional for arabic and English in localization
+                  Align(
+                      alignment: AlignmentDirectional.centerEnd,
+                      child: Text(
+                        StringsManager.forgetPassword,
+                        style: TextStyleManager.font12BlueRegular,
+                      )),
+                  verticalSpace(HeightSizeManager.h40),
+                  AppTextButton(
+                      text: StringsManager.login,
+                      onPressed: () {
+                        validateThenLogin(context);
+                      }),
+                  verticalSpace(HeightSizeManager.h16),
+                  const TermsAndCondationsText(),
+                  verticalSpace(HeightSizeManager.h60),
+                  const AlreadyHaveAccount(),
+                  const LoginBlocListener()
+                ])
               ],
             ),
           ),
         ),
       ),
     );
+  }
+
+  void validateThenLogin(BuildContext context) {
+    if (context.read<LoginCubit>().formKey.currentState!.validate()) {
+      context.read<LoginCubit>().emitLoadingState(LoginRequestBody(
+          email: context.read<LoginCubit>().emailController.text,
+          password: context.read<LoginCubit>().passwordController.text));
+    }
   }
 }

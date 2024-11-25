@@ -28,7 +28,7 @@ class AppTextFormField extends StatelessWidget {
     this.suffixIcon,
     this.hintStyle,
     this.backgroundColor,
-    this.controller,
+     this.controller,
     required this.validator,
   });
 
@@ -43,12 +43,10 @@ class AppTextFormField extends StatelessWidget {
               EdgeInsets.symmetric(
                   horizontal: WidthSizeManager.w20,
                   vertical: HeightSizeManager.h18),
-          focusedBorder:
-              focusedBorder ?? outlineInputBorder(AppColors.mainBlue),
-          enabledBorder:
-              enabledBorder ?? outlineInputBorder(AppColors.lighterGray),
-          errorBorder: outlineInputBorder(Colors.red),
-          focusedErrorBorder: outlineInputBorder(Colors.red),
+          focusedBorder: focusedBorder ??outlineInputBorder(AppColors.mainBlue),
+          enabledBorder: enabledBorder ??outlineInputBorder(AppColors.lighterGray),
+          errorBorder:outlineInputBorder(Colors.red),
+          focusedErrorBorder:outlineInputBorder(Colors.red),
           suffixIcon: suffixIcon ?? null,
           hintText: hintText,
           filled: true,
@@ -58,10 +56,10 @@ class AppTextFormField extends StatelessWidget {
       style: inputTextStyle ?? TextStyleManager.font14DarkBlueMedium,
     );
   }
-
   InputBorder outlineInputBorder(Color color) {
-    return OutlineInputBorder(
-        borderSide: const BorderSide(color: AppColors.lighterGray, width: 1.3),
-        borderRadius: BorderRadius.circular(16));
+    return   OutlineInputBorder(
+    borderSide: const BorderSide(
+    color: AppColors.lighterGray, width: 1.3),
+    borderRadius: BorderRadius.circular(16));
   }
 }

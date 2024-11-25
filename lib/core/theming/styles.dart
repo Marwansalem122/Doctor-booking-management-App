@@ -16,6 +16,10 @@ class TextStyleManager {
       fontSize: FontSizeManager.s13,
       color: AppColors.gray,
       fontWeight: FontWeightHelper.regular); // 16x
+  static TextStyle font13DarkBlueRegular = TextStyle(
+      fontSize: FontSizeManager.s13,
+      color: AppColors.darkBlue,
+      fontWeight: FontWeightHelper.regular);
   static TextStyle font24BlueBBold = TextStyle(
       fontSize: FontSizeManager.s24,
       color: AppColors.mainBlue,
@@ -57,4 +61,12 @@ class TextStyleManager {
       fontSize: FontSizeManager.s11,
       color: AppColors.grayWithOpacity,
       fontWeight: FontWeightHelper.regular);
+  static TextStyle font15DarkBlueMedium = TextStyle(
+      fontSize: FontSizeManager.s15,
+      color: AppColors.darkBlue,
+      fontWeight: FontWeightHelper.medium);
+  static TextStyle font14BlueSemiBold = TextStyle(
+      fontSize: FontSizeManager.s14,
+      color: AppColors.mainBlue,
+      fontWeight: FontWeightHelper.semiBold);
 }
